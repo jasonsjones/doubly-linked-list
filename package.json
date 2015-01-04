@@ -1,0 +1,30 @@
+{
+  "name": "doubly-linked-list",
+  "version": "0.0.1",
+  "description": "Javascript implementation of a doubly linked-list data structure",
+  "main": "doubly-linked-list.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitub.com:jasonsjones/doubly-linked-list.git"
+  },
+  "keywords": [
+    "doubly",
+    "linked",
+    "list",
+    "linked",
+    "list",
+    "data",
+    "structure"
+  ],
+  "author": "Jason Jones",
+  "license": "MIT",
+  "devDependencies": {
+    "should": "^4.4.2"
+  }
+}
