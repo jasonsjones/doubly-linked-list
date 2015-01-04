@@ -115,6 +115,38 @@
     DoublyLinkedList.prototype = {
 
         /**
+         * Creates a new Node object with 'data' assigned to the node's data
+         * property
+         *
+         * @param {object|string|number} data The data to initialize with the
+         *                                    node
+         * @returns {object} Node object intialized with 'data'
+         */
+        createNewNode: function(data) {
+            return new Node(data);
+        },
+
+        /**
+         * Returns the first node in the list, commonly referred to as the
+         * 'head' node
+         *
+         * @returns {object} the head node of the list
+         */
+        getHeadNode: function() {
+            return this.head;
+        },
+
+        /**
+         * Returns the last node in the list, commonly referred to as the 
+         * 'tail'node
+         *
+         * @returns {object} the tail node of the list
+         */
+        getTailNode: function() {
+            return this.tail;
+        },
+
+        /**
          * Determines if the list is empty
          *
          * @returns {boolean} true if the list is empty, false otherwise
@@ -130,6 +162,38 @@
          */
         getSize: function() {
             return this.size;
+        },
+
+        /**
+         * Clears the list of all nodes/data
+         */
+        clear: function () {
+            //while (!this.isEmpty()) {
+                //this.removeFirst();
+            //}
+        },
+
+        //################## INSERT methods ####################
+
+        /**
+         * Inserts a node with the provided data to the end of the list
+         *
+         * @param {object|string|number} data The data to initialize with the
+         *                                    node
+         * @returns {boolean} true if insert operation was successful
+         */
+        insert: function(data) {
+            var newNode = this.createNewNode(data);
+            if (this.isEmpty()) {
+                this.head = this.tail = newNode;
+            } else {
+                this.tail.next = newNode;
+                newNode.prev = newNode;
+                this.tail = newNode;
+            }
+            this.size += 1;
+
+            return true;
         }
     };
 
