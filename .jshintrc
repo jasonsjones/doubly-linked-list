@@ -1,0 +1,12 @@
+{
+    "camelcase": true,
+    "curly": true,
+    "eqeqeq": true,
+    "expr": false,
+    "forin": true,
+    "indent": true,
+    "latedef": "nofunc",
+    "validthis": true,
+    "node": true,
+    "mocha": true
+}
