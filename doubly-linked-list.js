@@ -137,7 +137,7 @@
         },
 
         /**
-         * Returns the last node in the list, commonly referred to as the 
+         * Returns the last node in the list, commonly referred to as the
          * 'tail'node
          *
          * @returns {object} the tail node of the list
@@ -168,9 +168,9 @@
          * Clears the list of all nodes/data
          */
         clear: function () {
-            //while (!this.isEmpty()) {
-                //this.removeFirst();
-            //}
+            while (!this.isEmpty()) {
+                this.remove();
+            }
         },
 
         //################## INSERT methods ####################
@@ -188,12 +188,48 @@
                 this.head = this.tail = newNode;
             } else {
                 this.tail.next = newNode;
-                newNode.prev = newNode;
+                newNode.prev = this.tail;
                 this.tail = newNode;
             }
             this.size += 1;
 
             return true;
+        },
+
+
+        //################## REMOVE methods ####################
+
+        /**
+         * Removes the tail node from the list
+         *
+         * There is a slight perfomance cost associated with this operation.
+         * In order to remove the tail node a handle to the node before the
+         * tail node is required, which requires a O(n) operation.
+         *
+         * @returns the node that was removed
+         */
+        remove: function() {
+            if (this.isEmpty()) {
+                return null;
+            }
+
+            // get handle for the tail node
+            var nodeToRemove = this.getTailNode();
+
+            // if there is only one node in the list, set head and tail
+            // properties to null
+            if (this.getSize() === 1) {
+                this.head = null;
+                this.tail = null;
+
+            // more than one node in the list
+            } else {
+                this.tail = this.getTailNode().prev;
+                this.tail.next = null;
+            }
+            this.size -= 1;
+
+            return nodeToRemove;
         }
     };
 
