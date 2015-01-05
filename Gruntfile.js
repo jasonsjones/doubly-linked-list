@@ -3,8 +3,9 @@ module.exports = function(grunt) {
     grunt.initConfig({
         jshint: {
             all: {
-                src: ['doubly-linked-list.js', 'tests/**/*.js']
-            }
+                src: ['doubly-linked-list.js', 'tests/*.js']
+            },
+            jshintrc: '.jshintrc'
         }
     });
 
