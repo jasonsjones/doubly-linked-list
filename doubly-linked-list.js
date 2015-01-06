@@ -202,9 +202,10 @@
         /**
          * Removes the tail node from the list
          *
-         * There is a slight perfomance cost associated with this operation.
-         * In order to remove the tail node a handle to the node before the
-         * tail node is required, which requires a O(n) operation.
+         * There is a significant performance improvement with the operation
+         * over its singly linked list counterpart.  The mere fact of having
+         * a reference to the previous node improves this operation from O(n)
+         * (in the case of singly linked list) to O(1).
          *
          * @returns the node that was removed
          */
