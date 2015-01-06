@@ -4,8 +4,7 @@ module.exports = function(grunt) {
         jshint: {
             all: {
                 src: ['doubly-linked-list.js', 'tests/*.js']
-            },
-            jshintrc: '.jshintrc'
+            }
         }
     });
 
