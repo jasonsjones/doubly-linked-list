@@ -1,5 +1,4 @@
 /* globals describe it before */
-/* jshint expr: true */
 
 var should = require('should');
 var LinkedList = require('../doubly-linked-list');

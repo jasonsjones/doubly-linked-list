@@ -2,6 +2,7 @@
     "camelcase": true,
     "curly": true,
     "eqeqeq": true,
+    "expr": true,
     "forin": true,
     "indent": true,
     "latedef": "nofunc",
