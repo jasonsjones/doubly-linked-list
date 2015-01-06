@@ -4,7 +4,7 @@
 var should = require('should');
 var LinkedList = require('../doubly-linked-list');
 
-describe('Linked List', function() {
+describe.only('Linked List', function() {
     var list = null;
 
     // Utility function to populate the list with dummy data.
@@ -57,6 +57,16 @@ describe('Linked List', function() {
             var tail = list.getTailNode();
             tail.getData().should.equal('test item 5');
         });
+
+        it('should insert items to the front of the list', function() {
+            list.insert('test item 1');
+            list.insert('test item 2');
+            list.insertFirst('new item 0');
+            list.getHeadNode().data.should.equal('new item 0');
+            list.getHeadNode().hasPrev().should.equal(false);
+            list.getSize().should.equal(3);
+        });
+
     });
 
     describe('remove functionality', function() {

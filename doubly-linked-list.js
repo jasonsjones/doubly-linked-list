@@ -196,6 +196,29 @@
             return true;
         },
 
+        /**
+         * Inserts a node with the provided data to the front of the list
+         *
+         * @param {object|string|number} data The data to initialize with the
+         *                                    node
+         * @returns {boolean} true if insert operation was successful
+         */
+        insertFirst: function(data) {
+            if (this.isEmpty()) {
+                this.insert(data);
+            } else {
+                var newNode = this.createNewNode(data);
+
+                newNode.next = this.head;
+                this.head.prev = newNode;
+                this.head = newNode;
+
+                this.size += 1;
+            }
+
+            return true;
+        },
+
 
         //################## REMOVE methods ####################
 
