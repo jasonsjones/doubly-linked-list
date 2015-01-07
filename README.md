@@ -1,3 +1,5 @@
+[![Build Status][travis-image]][travis-url] [![dependency status][dm-url]][dm-image]
+
 # Doubly Linked List
 
 ## Description
@@ -17,3 +19,8 @@ the list a bit more efficient since each node has a reference the one
 before it and the one after it.  The idea of having a links to the
 previous and next nodes is where this data structure got its descriptive
 name.
+
+[travis-image]:https://travis-ci.org/jasonsjones/doubly-linked-list.svg
+[travis-url]:https://travis-ci.org/jasonsjones/doubly-linked-list
+[dm-image]:https://david-dm.org/jasonsjones/doubly-linked-list
+[dm-url]:https://david-dm.org/jasonsjones/doubly-linked-list.svg
