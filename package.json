@@ -2,12 +2,12 @@
   "name": "doubly-linked-list",
   "version": "0.0.1",
   "description": "Javascript implementation of a doubly linked-list data structure",
-  "main": "doubly-linked-list.js",
+  "main": "index.js",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "scripts": {
-    "test": "mocha tests/*.js"
+    "test": "mocha test/*.js"
   },
   "repository": {
     "type": "git",
