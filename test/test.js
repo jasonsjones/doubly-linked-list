@@ -188,6 +188,24 @@ describe('Linked List', function() {
             index = list.indexOf('test item 3');
             index.should.equal(2);
         });
+
+        it('should return node at given index', function() {
+            list.insert('test item 1');
+            list.insert('test item 2');
+            var node = list.findAt(0);
+            node.should.be.an.Object;
+            node.getData().should.equal('test item 1');
+
+            node = list.findAt(1);
+            node.should.be.an.Object;
+            node.getData().should.equal('test item 2');
+        });
+
+        it('should return -1 when findAt() is called with index > than list size', function() {
+            var node = list.findAt(0);
+            node.should.not.be.an.Object;
+            node.should.equal(-1);
+        });
     });
 });
 

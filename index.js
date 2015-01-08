@@ -300,6 +300,31 @@
 
             // only get here if we didn't find a node containing the nodeData
             return -1;
+        },
+
+        /**
+         * Returns the node at the location provided by index
+         *
+         * @param {number} index The index of the node to return
+         * @returns the node located at the index provided.
+         */
+        findAt: function(index) {
+            // if idx is out of bounds or fn called on empty list, return -1
+            if (this.isEmpty() || index > this.getSize() - 1) {
+                return -1;
+            }
+
+            // else, loop through the list and return the node in the
+            // position provided by idx.  Assume zero-based positions.
+            var node = this.getHeadNode();
+            var position = 0;
+
+            while (position < index) {
+                node = node.next;
+                position += 1;
+            }
+
+            return node;
         }
     };
 
