@@ -14,11 +14,21 @@ additional pointer to the previous node is what distinguishes a doubly linked
 list from a singly linked list--a singly linked list only contains a pointer,
 or reference, to the next node.  The major advantage to having pointers to
 both the next and previous node is that the list can be traversed in both
-directions, as well as making operations that operate on the 'middel' of
+directions, as well as making operations that operate on the 'middle' of
 the list a bit more efficient since each node has a reference the one
 before it and the one after it.  The idea of having a links to the
 previous and next nodes is where this data structure got its descriptive
 name.
+
+### Advantages
+
+- List will grow dynamically with each node added; no requirement to
+  'resize' list when it reaches a certain size, saving considerable overhead
+  in 'house-keeping' operations.
+- Flexibility to add or remove nodes at the beginning or end of the list in
+  O(1) time.  This is a significant improvement over its
+  [singly linked list](https://github.com/jasonsjones/singly-linked-list)
+  counterpart.
 
 [travis-image]:https://travis-ci.org/jasonsjones/doubly-linked-list.svg
 [travis-url]:https://travis-ci.org/jasonsjones/doubly-linked-list
