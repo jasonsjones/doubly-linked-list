@@ -173,6 +173,21 @@ describe('Linked List', function() {
             first.getData().should.equal('test item 2');
             first.hasPrev().should.equal(false);
         });
+
+    });
+
+    describe('find functionality', function() {
+        it('should return the index of node with the given data', function() {
+            populateList(list, 3);
+            var index = list.indexOf('test item 1');
+            index.should.equal(0);
+
+            index = list.indexOf('test item 2');
+            index.should.equal(1);
+
+            index = list.indexOf('test item 3');
+            index.should.equal(2);
+        });
     });
 });
 

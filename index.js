@@ -273,6 +273,34 @@
 
             return nodeToRemove;
         },
+
+        //################## FIND methods ####################
+
+        /**
+         * Returns the index of the first node containing the provided data.  If
+         * a node cannot be found containing the provided data, -1 is returned.
+         *
+         * @param {object|string|number} nodeData The data of the node to find
+         * @returns the index of the node if found, -1 otherwise
+         */
+        indexOf: function(nodeData) {
+            // start at the head of the list
+            var current = this.getHeadNode();
+            var index = 0;
+
+            // iterate over the list (keeping track of the index value) until
+            // we find the node containg the nodeData we are looking for
+            while (current !== null) {
+                if (current.getData() === nodeData) {
+                    return index;
+                }
+                index += 1;
+                current = current.next;
+            }
+
+            // only get here if we didn't find a node containing the nodeData
+            return -1;
+        }
     };
 
     module.exports = DoublyLinkedList;
