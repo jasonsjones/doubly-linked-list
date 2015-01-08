@@ -254,7 +254,25 @@
             this.size -= 1;
 
             return nodeToRemove;
-        }
+        },
+
+        /**
+         * Removes the head node from the list
+         *
+         * @returns the node that was removed
+         */
+        removeFirst: function() {
+            if (this.isEmpty()) {
+                return null;
+            }
+
+            var nodeToRemove = this.getHeadNode();
+            this.head = this.head.next;
+            this.head.prev = null;
+            this.size -= 1;
+
+            return nodeToRemove;
+        },
     };
 
     module.exports = DoublyLinkedList;

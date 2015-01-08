@@ -138,7 +138,8 @@ describe('Linked List', function() {
     });
 
     describe('remove functionality', function() {
-        it('should return null if remove is called on an empty list', function() {
+        it('should return null if remove is called on an empty list',
+           function() {
             var node = list.remove();
             should.not.exist(node);
         });
@@ -149,8 +150,28 @@ describe('Linked List', function() {
             list.getSize().should.equal(3);
             var node = list.remove();
             node.getData().should.equal('test item 3');
-            list.getTailNode().getData().should.equal('test item 2');
             list.getSize().should.equal(2);
+            var last = list.getTailNode();
+            last.getData().should.equal('test item 2');
+            last.hasNext().should.equal(false);
+        });
+
+        it('should return null if removeFirst is called on an empty list',
+           function() {
+            var node = list.removeFirst();
+            should.not.exist(node);
+        });
+
+        it('should remove items from the front of the list', function() {
+            populateList(list, 3);
+            list.isEmpty().should.equal(false);
+            list.getSize().should.equal(3);
+            var node = list.removeFirst();
+            node.getData().should.equal('test item 1');
+            list.getSize().should.equal(2);
+            var first = list.getHeadNode();
+            first.getData().should.equal('test item 2');
+            first.hasPrev().should.equal(false);
         });
     });
 });
