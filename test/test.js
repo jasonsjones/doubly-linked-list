@@ -135,6 +135,32 @@ describe('Linked List', function() {
             list.getSize().should.equal(3);
         });
 
+        it('should insert item at a particular index', function() {
+            populateList(list, 3);
+            list.insert('test item 5');
+            list.getSize().should.equal(4);
+            var success = list.insertAt(3, 'test item 4');
+            success.should.equal(true);
+            list.getSize().should.equal(5);
+            var node = list.findAt(3);
+            node.getData().should.equal('test item 4');
+        });
+
+        it('should insert new head node when inserting at index 0', function() {
+            populateList(list, 3);
+            list.getSize().should.equal(3);
+            var success = list.insertAt(0, 'test item 0');
+            success.should.equal(true);
+            list.getSize().should.equal(4);
+            var node = list.getHeadNode();
+            node.getData().should.equal('test item 0');
+        });
+
+        it('should return false when trying to insert at index out of bounds', function() {
+            populateList(list, 3);
+            var success = list.insertAt(5, 'test item 4');
+            success.should.equal(false);
+        });
     });
 
     describe('remove functionality', function() {

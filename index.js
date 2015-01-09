@@ -219,6 +219,45 @@
             return true;
         },
 
+        /**
+         * Inserts a node with the provided data at the index indicated.
+         *
+         * @param {number} index The index in the list to insert the new node
+         * @param {object|string|number} data The data to initialize with the node
+         */
+        insertAt: function (index, data) {
+            var current = this.getHeadNode(),
+                newNode = this.createNewNode(data),
+                previous = null,
+                position = 0;
+
+            // check for index out-of-bounds
+            if (index < 0 || index > this.getSize() - 1) {
+               return false;
+            }
+
+            // if index is 0, we just need to insert the first node
+            if (index === 0) {
+                this.insertFirst(data);
+                return true;
+            }
+
+            while (position < index) {
+               previous = current;
+               current = current.next;
+               position += 1;
+            }
+
+            current.prev.next = newNode;
+            newNode.prev = current.prev;
+            current.prev = newNode;
+            newNode.next = current;
+
+            this.size += 1;
+
+            return true;
+        },
+
 
         //################## REMOVE methods ####################
 
