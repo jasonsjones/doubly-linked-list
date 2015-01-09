@@ -177,16 +177,47 @@ describe('Linked List', function() {
     });
 
     describe('find functionality', function() {
-        it('should return the index of node with the given data', function() {
+        it.skip('should find a node with the data provided', function() {
             populateList(list, 3);
-            var index = list.indexOf('test item 1');
-            index.should.equal(0);
+            var node = list.find('test item 2');
+            node.should.be.an.Object;
+            node.getData().should.equal('test item 2');
+        });
 
-            index = list.indexOf('test item 2');
-            index.should.equal(1);
+        it.skip('should return -1 if a node does not exist with the given data',
+            function() {
+                populateList(list, 3);
+                var node = list.find('not found...');
+                node.should.not.be.an.Object;
+                node.should.equal(-1);
+        });
 
-            index = list.indexOf('test item 3');
-            index.should.equal(2);
+        it.skip('should return -1 if find() is called on an empty list',
+            function() {
+                var node = list.find('not found...');
+                node.should.not.be.an.Object;
+                node.should.equal(-1);
+        });
+
+        it('should return the index of node containing the provided data',
+            function() {
+                populateList(list, 3);
+                var index = list.indexOf('test item 1');
+                index.should.equal(0);
+
+                index = list.indexOf('test item 2');
+                index.should.equal(1);
+
+                index = list.indexOf('test item 3');
+                index.should.equal(2);
+        });
+
+        it('should return -1 for the index of node with the given data if the' +
+           'node does not exist',
+               function() {
+                   populateList(list, 3);
+                   var index = list.indexOf('not found');
+                   index.should.equal(-1);
         });
 
         it('should return node at given index', function() {
@@ -201,10 +232,21 @@ describe('Linked List', function() {
             node.getData().should.equal('test item 2');
         });
 
-        it('should return -1 when findAt() is called with index > than list size', function() {
-            var node = list.findAt(0);
-            node.should.not.be.an.Object;
-            node.should.equal(-1);
+        it('should return -1 when findAt() is called w/ index > than list size',
+            function() {
+                var node = list.findAt(0);
+                node.should.not.be.an.Object;
+                node.should.equal(-1);
+        });
+
+        it.skip('should return true if list contains specified data,' +
+            'false otherwise', function () {
+                populateList(list, 3);
+                var result = list.contains('test item 2');
+                result.should.equal(true);
+
+                result = list.contains('not found');
+                result.should.equal(false);
         });
     });
 });
