@@ -239,7 +239,7 @@ describe('Linked List', function() {
                 node.should.equal(-1);
         });
 
-        it.skip('should return true if list contains specified data,' +
+        it('should return true if list contains specified data,' +
             'false otherwise', function () {
                 populateList(list, 3);
                 var result = list.contains('test item 2');

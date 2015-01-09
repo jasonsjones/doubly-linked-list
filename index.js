@@ -349,7 +349,22 @@
             }
 
             return node;
-        }
+        },
+
+        /**
+         * Determines whether or not the list contains the provided nodeData
+         *
+         * @param {object|string|number} nodeData The data to check if the list
+         *        contains
+         * @returns the true if the list contains nodeData, false otherwise
+         */
+         contains: function (nodeData) {
+             if (this.indexOf(nodeData) > -1) {
+                 return true;
+             } else {
+                 return false;
+             }
+         },
     };
 
     module.exports = DoublyLinkedList;
