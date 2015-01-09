@@ -177,14 +177,14 @@ describe('Linked List', function() {
     });
 
     describe('find functionality', function() {
-        it.skip('should find a node with the data provided', function() {
+        it('should find a node with the data provided', function() {
             populateList(list, 3);
             var node = list.find('test item 2');
             node.should.be.an.Object;
             node.getData().should.equal('test item 2');
         });
 
-        it.skip('should return -1 if a node does not exist with the given data',
+        it('should return -1 if a node does not exist with the given data',
             function() {
                 populateList(list, 3);
                 var node = list.find('not found...');
@@ -192,7 +192,7 @@ describe('Linked List', function() {
                 node.should.equal(-1);
         });
 
-        it.skip('should return -1 if find() is called on an empty list',
+        it('should return -1 if find() is called on an empty list',
             function() {
                 var node = list.find('not found...');
                 node.should.not.be.an.Object;

@@ -303,6 +303,30 @@
         },
 
         /**
+         * Returns the fist node containing the provided data.  If a node
+         * cannot be found containing the provided data, -1 is returned.
+         *
+         * @param {object|string|number} nodeData The data of the node to find
+         * @returns the node if found, -1 otherwise
+         */
+        find: function(nodeData) {
+            // start at the head of the list
+            var current = this.getHeadNode();
+
+            // iterate over the list until we find the node containing the data
+            // we are looking for
+            while (current !== null) {
+                if (current.getData() === nodeData) {
+                    return current;
+                }
+                current = current.next;
+            }
+
+            // only get here if we didn't find a node containing the nodeData
+            return -1;
+        },
+
+        /**
          * Returns the node at the location provided by index
          *
          * @param {number} index The index of the node to return
