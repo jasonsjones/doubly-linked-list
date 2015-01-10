@@ -9,6 +9,7 @@
     'use strict';
 
     var Node = require('./lib/list-node');
+    var Iterator = require('./lib/iterator');
 
 
     /**************************************************
@@ -33,6 +34,12 @@
         this.head = null;
         this.tail = null;
         this.size = 0;
+
+        // add iterator as a property of this list to share the same
+        // iterator instance with all other methods that may require
+        // its use.  Note: be sure to call this.iterator.reset() to
+        // reset this iterator to point the head of the list.
+        this.iterator = new Iterator(this);
     }
 
     /* Functions attached to the Linked-list prototype.  All linked-list
@@ -251,18 +258,19 @@
          * @returns the index of the node if found, -1 otherwise
          */
         indexOf: function(nodeData) {
-            // start at the head of the list
-            var current = this.getHeadNode();
+            this.iterator.reset();
+            var current;
+
             var index = 0;
 
             // iterate over the list (keeping track of the index value) until
             // we find the node containg the nodeData we are looking for
-            while (current !== null) {
+            while (this.iterator.hasNext()) {
+                current = this.iterator.next();
                 if (current.getData() === nodeData) {
                     return index;
                 }
                 index += 1;
-                current = current.next;
             }
 
             // only get here if we didn't find a node containing the nodeData
@@ -278,15 +286,16 @@
          */
         find: function(nodeData) {
             // start at the head of the list
-            var current = this.getHeadNode();
+            this.iterator.reset();
+            var current;
 
             // iterate over the list until we find the node containing the data
             // we are looking for
-            while (current !== null) {
+            while (this.iterator.hasNext()) {
+                current = this.iterator.next();
                 if (current.getData() === nodeData) {
                     return current;
                 }
-                current = current.next;
             }
 
             // only get here if we didn't find a node containing the nodeData
