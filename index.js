@@ -35,10 +35,11 @@
         this.prev = null;
     }
 
-    // Functions attached to the Node prototype.  All node instances will
-    // share these methods, meaning there will NOT be copies made for each
-    // instance.  This will be a huge memory savings since there will likely
-    // be a large number of individual nodes.
+    /* Functions attached to the Node prototype.  All node instances will
+     * share these methods, meaning there will NOT be copies made for each
+     * instance.  This will be a huge memory savings since there will likely
+     * be a large number of individual nodes.
+     */
     Node.prototype = {
 
         /**
@@ -108,10 +109,11 @@
         this.size = 0;
     }
 
-    // Functions attached to the Linked-list prototype.  All linked-list
-    // instances will share these methods, meaning there will NOT be copies
-    // made for each instance.  This will be a huge memory savings since there
-    // may be several different linked lists.
+    /* Functions attached to the Linked-list prototype.  All linked-list
+     * instances will share these methods, meaning there will NOT be copies
+     * made for each instance.  This will be a huge memory savings since there
+     * may be several different linked lists.
+     */
     DoublyLinkedList.prototype = {
 
         /**
