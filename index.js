@@ -341,6 +341,33 @@
                  return false;
              }
          },
+
+        //################## UTILITY methods ####################
+
+        /**
+         * Utility function to iterate over the list and call the fn provided
+         * on each node, or element, of the list
+         *
+         * param {object} fn The function to call on each node of the list
+         */
+        forEach: function(fn) {
+            this.iterator.reset();
+            this.iterator.each(fn);
+        },
+
+        /**
+         * Returns an array of all the data contained in the list
+         *
+         * @returns {array} the array of all the data from the list
+         */
+        toArray: function() {
+            var listArray = [];
+            this.forEach(function(node) {
+                listArray.push(node.getData());
+            });
+
+            return listArray;
+        }
     };
 
     module.exports = DoublyLinkedList;

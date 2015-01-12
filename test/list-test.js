@@ -41,7 +41,7 @@ describe('Linked List', function() {
         should.not.exist(list.getTailNode());
     });
 
-    it.skip('should return an array of all the data in the list', function() {
+    it('should return an array of all the data in the list', function() {
         list.insert({
             id: 1,
             name: "test item 1"
