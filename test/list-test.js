@@ -221,7 +221,7 @@ describe('Linked List', function() {
             first.hasPrev().should.equal(false);
         });
 
-        it.skip('should remove item at a particulary index', function() {
+        it('should remove item at a particulary index', function() {
             populateList(list, 4);
             list.getSize().should.equal(4);
             var node = list.removeAt(1);

@@ -248,6 +248,40 @@
             return nodeToRemove;
         },
 
+        /**
+         * Removes the node at the index provided
+         *
+         * @param {number} index The index of the node to remove
+         * @returns the node that was removed
+         */
+        removeAt: function (index) {
+            var nodeToRemove = this.findAt(index);
+
+            // check for index out-of-bounds
+            if (index < 0 || index > this.getSize() - 1) {
+               return null;
+            }
+
+            // if index is 0, we just need to remove the first node
+            if (index === 0) {
+                return this.removeFirst();
+            }
+
+            // if index is size-1, we just need to remove the last node,
+            // which remove() does by default
+            if (index === this.getSize() - 1) {
+                return this.remove();
+            }
+
+            nodeToRemove.prev.next = nodeToRemove.next;
+            nodeToRemove.next.prev = nodeToRemove.prev;
+            nodeToRemove.next = nodeToRemove.prev = null;
+
+            this.size -= 1;
+
+            return nodeToRemove;
+        },
+
         //################## FIND methods ####################
 
         /**
