@@ -41,6 +41,24 @@ describe('Linked List', function() {
         should.not.exist(list.getTailNode());
     });
 
+    it.skip('should return an array of all the data in the list', function() {
+        list.insert({
+            id: 1,
+            name: "test item 1"
+        });
+        list.insert({
+            id: 2,
+            name: "test item 2"
+        });
+        list.insert({
+            id: 3,
+            name: "test item 3"
+        });
+        var listArray = list.toArray();
+        listArray.should.be.an.Array;
+        listArray.should.have.length(3);
+    });
+
     describe('iterator functionality', function() {
         it('should exist when a list is instantiated', function() {
             list.iterator.should.be.ok;
@@ -130,6 +148,40 @@ describe('Linked List', function() {
             var success = list.insertAt(5, 'test item 4');
             success.should.equal(false);
         });
+
+        it.skip('should insert item before a particular node', function () {
+            populateList(list, 3);
+            list.insert('test item 5');
+            list.getSize().should.equal(4);
+
+            list.insertBefore('test item 5', 'test item 4');
+            list.getSize().should.equal(5);
+            var node = list.findAt(3);
+            node.getData().should.equal('test item 4');
+
+            // test for inserting before the head node
+            list.insertBefore('test item 1', 'test item 0');
+            list.getSize().should.equal(6);
+            node = list.getHeadNode();
+            node.getData().should.equal('test item 0');
+        });
+
+        it.skip('should insert item after a particular node', function () {
+            populateList(list, 3);
+            list.insert('test item 5');
+            list.getSize().should.equal(4);
+
+            list.insertAfter('test item 3', 'test item 4');
+            list.getSize().should.equal(5);
+            var node = list.findAt(3);
+            node.getData().should.equal('test item 4');
+
+            // test for inserting after the tail node
+            list.insertAfter('test item 5', 'test item 6');
+            list.getSize().should.equal(6);
+            node = list.getTailNode();
+            node.getData().should.equal('test item 6');
+        });
     });
 
     describe('remove functionality', function() {
@@ -167,6 +219,22 @@ describe('Linked List', function() {
             var first = list.getHeadNode();
             first.getData().should.equal('test item 2');
             first.hasPrev().should.equal(false);
+        });
+
+        it.skip('should remove item at a particulary index', function() {
+            populateList(list, 4);
+            list.getSize().should.equal(4);
+            var node = list.removeAt(1);
+            node.getData().should.equal('test item 2');
+            list.getSize().should.equal(3);
+        });
+
+        it.skip('should remove a node with given data', function() {
+            populateList(list, 4);
+            list.getSize().should.equal(4);
+            var node = list.removeNode('test item 3');
+            node.getData().should.equal('test item 3');
+            list.getSize().should.equal(3);
         });
 
     });
