@@ -229,7 +229,7 @@ describe('Linked List', function() {
             list.getSize().should.equal(3);
         });
 
-        it.skip('should remove a node with given data', function() {
+        it('should remove a node with given data', function() {
             populateList(list, 4);
             list.getSize().should.equal(4);
             var node = list.removeNode('test item 3');

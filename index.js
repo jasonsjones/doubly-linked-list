@@ -282,6 +282,17 @@
             return nodeToRemove;
         },
 
+        /**
+         * Removes the first node that contains the data provided
+         *
+         * @param {object|string|number} data The data of the node to remove
+         * @returns the node that was removed
+         */
+        removeNode: function (nodeData) {
+            var index = this.indexOf(nodeData);
+            return this.removeAt(index);
+        },
+
         //################## FIND methods ####################
 
         /**
