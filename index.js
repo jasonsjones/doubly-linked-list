@@ -193,6 +193,44 @@
             return true;
         },
 
+        /**
+         * Inserts a node before the first node containing the provided data
+         *
+         * @param {object|string|number} nodeData The data of the node to
+         *         find to insert the new node before
+         * @param {object|string|number} dataToInsert The data to initialize with the node
+         * @returns {boolean} true if insert operation was successful
+         */
+        insertBefore: function (nodeData, dataToInsert) {
+            var index = this.indexOf(nodeData);
+            return this.insertAt(index, dataToInsert);
+        },
+
+        /**
+         * Inserts a node after the first node containing the provided data
+         *
+         * @param {object|string|number} nodeData The data of the node to
+         *         find to insert the new node after
+         * @param {object|string|number} dataToInsert The data to initialize with the node
+         * @returns {boolean} true if insert operation was successful
+         */
+        insertAfter: function (nodeData, dataToInsert) {
+            var index = this.indexOf(nodeData);
+            var size = this.getSize();
+
+            // check if we want to insert new node after the tail node
+            if (index + 1 === size) {
+
+                // if so, call insert, which will append to the end by default
+                return this.insert(dataToInsert);
+
+            } else {
+
+                // otherwise, increment the index and insert there
+                return this.insertAt(index + 1, dataToInsert);
+            }
+        },
+
 
         //################## REMOVE methods ####################
 

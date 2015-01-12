@@ -149,7 +149,7 @@ describe('Linked List', function() {
             success.should.equal(false);
         });
 
-        it.skip('should insert item before a particular node', function () {
+        it('should insert item before a particular node', function () {
             populateList(list, 3);
             list.insert('test item 5');
             list.getSize().should.equal(4);
@@ -166,7 +166,7 @@ describe('Linked List', function() {
             node.getData().should.equal('test item 0');
         });
 
-        it.skip('should insert item after a particular node', function () {
+        it('should insert item after a particular node', function () {
             populateList(list, 3);
             list.insert('test item 5');
             list.getSize().should.equal(4);
