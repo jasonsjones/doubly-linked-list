@@ -20,7 +20,7 @@ before it and the one after it.  The idea of having a links to the
 previous and next nodes is where this data structure got its descriptive
 name.
 
-This implemenation provides basic functionality of adding nodes to the front or
+This implementation provides basic functionality of adding nodes to the front or
 back of the list, as well as the ability to insert a node at a given position
 in the list.  It also provides the ability to remove nodes at the front or back
 of the list, or from any given position.
