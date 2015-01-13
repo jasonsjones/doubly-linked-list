@@ -12,7 +12,8 @@ module.exports = function(grunt) {
                 src: ['test/**/*.js']
             },
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                reporter: require('jshint-stylish')
             }
         },
         mochacli: {
