@@ -8,7 +8,7 @@ This is a javascript implementation of a [doubly linked
 list](http://en.wikipedia.org/wiki/Linked_list) data structure.
 
 In simple terms, a doubly linked list consists of one or more 'nodes'.  Each
-node has a data field (which can contain any data--a primative value or complex
+node has a data field (which can contain any data--a primitive value or complex
 object) and a pointer to the next 'node' and the previous 'node'. This
 additional pointer to the previous node is what distinguishes a doubly linked
 list from a singly linked list--a singly linked list only contains a pointer,
@@ -39,7 +39,7 @@ specific position, or index, in the list.
   [singly linked list](https://github.com/jasonsjones/singly-linked-list)
   counterpart.
 
-### Disadvantes
+### Disadvantages
 
 - All 'find' operations take O(n) time to iterate over the list to find the
   requested node.  This is the case for both the singly and doubly linked
