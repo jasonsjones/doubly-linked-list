@@ -77,7 +77,6 @@ this implementation in any other context/environment; only tested with node.js_
 Install with npm :
 
 ```sh
-# not yet published on npm, but when it is, run
 npm install dbly-linked-list --save
 ```
 
@@ -87,7 +86,6 @@ with this data structure. For a description of all the methods, see the
 API section._
 
 ```javascript
-// not yet published on npm
 var LinkedList = require('dbly-linked-list');
 var list - new LinkedList();
 
