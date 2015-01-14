@@ -20,10 +20,10 @@ before it and the one after it.  The idea of having a links to the
 previous and next nodes is where this data structure got its descriptive
 name.
 
-This implementation provides basic functionality of adding nodes to the front or
-back of the list, as well as the ability to insert a node at a given position
-in the list.  It also provides the ability to remove nodes at the front or back
-of the list, or from any given position.
+This implementation provides basic functionality of adding nodes to the front
+or back of the list, as well as the ability to insert a node at a given
+position in the list.  It also provides the ability to remove nodes at the
+front or back of the list, or from any given position.
 
 The find, or search, functionality provides the ability to find the first node
 containing specified data. It also provides the ability to find a node given a
@@ -38,6 +38,12 @@ specific position, or index, in the list.
   O(1) time.  This is a significant improvement over its
   [singly linked list](https://github.com/jasonsjones/singly-linked-list)
   counterpart.
+
+### Disadvantes
+
+- All 'find' operations take O(n) time to iterate over the list to find the
+  requested node.  This is the case for both the singly and doubly linked
+  list.
 
 *For specific examples and documentation, see the below sections*
 
