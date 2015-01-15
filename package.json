@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitub.com:jasonsjones/doubly-linked-list.git"
+    "url": "https://github.com/jasonsjones/doubly-linked-list.git"
   },
   "keywords": [
     "doubly linked-list",
