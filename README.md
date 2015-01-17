@@ -8,7 +8,7 @@ This is a javascript implementation of a [doubly linked
 list](http://en.wikipedia.org/wiki/Linked_list) data structure.
 
 In simple terms, a doubly linked list consists of one or more 'nodes'.  Each
-node has a data field (which can contain any data--a primative value or complex
+node has a data field (which can contain any data--a primitive value or complex
 object) and a pointer to the next 'node' and the previous 'node'. This
 additional pointer to the previous node is what distinguishes a doubly linked
 list from a singly linked list--a singly linked list only contains a pointer,
@@ -20,10 +20,10 @@ before it and the one after it.  The idea of having a links to the
 previous and next nodes is where this data structure got its descriptive
 name.
 
-This implementation provides basic functionality of adding nodes to the front or
-back of the list, as well as the ability to insert a node at a given position
-in the list.  It also provides the ability to remove nodes at the front or back
-of the list, or from any given position.
+This implementation provides basic functionality of adding nodes to the front
+or back of the list, as well as the ability to insert a node at a given
+position in the list.  It also provides the ability to remove nodes at the
+front or back of the list, or from any given position.
 
 The find, or search, functionality provides the ability to find the first node
 containing specified data. It also provides the ability to find a node given a
@@ -38,6 +38,12 @@ specific position, or index, in the list.
   O(1) time.  This is a significant improvement over its
   [singly linked list](https://github.com/jasonsjones/singly-linked-list)
   counterpart.
+
+### Disadvantages
+
+- All 'find' operations take O(n) time to iterate over the list to find the
+  requested node.  This is the case for both the singly and doubly linked
+  list.
 
 *For specific examples and documentation, see the below sections*
 
@@ -71,7 +77,6 @@ this implementation in any other context/environment; only tested with node.js_
 Install with npm :
 
 ```sh
-# not yet published on npm, but when it is, run
 npm install dbly-linked-list --save
 ```
 
@@ -81,7 +86,6 @@ with this data structure. For a description of all the methods, see the
 API section._
 
 ```javascript
-// not yet published on npm
 var LinkedList = require('dbly-linked-list');
 var list - new LinkedList();
 

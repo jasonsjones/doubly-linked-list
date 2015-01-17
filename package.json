@@ -1,6 +1,6 @@
 {
   "name": "dbly-linked-list",
-  "version": "0.0.1",
+  "version": "0.1.3",
   "description": "Javascript implementation of a doubly linked-list data structure",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitub.com:jasonsjones/doubly-linked-list.git"
+    "url": "https://github.com/jasonsjones/doubly-linked-list.git"
   },
   "keywords": [
     "doubly linked-list",
