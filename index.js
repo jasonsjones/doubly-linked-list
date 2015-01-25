@@ -1,7 +1,7 @@
 /**
  * @fileOverview Implementation of a doubly linked-list data structure
  * @author Jason S. Jones
- * @version 0.1.0
+ * @version 0.1.3
  * @license MIT
  */
 
