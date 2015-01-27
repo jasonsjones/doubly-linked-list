@@ -279,8 +279,14 @@
             }
 
             var nodeToRemove = this.getHeadNode();
-            this.head = this.head.next;
-            this.head.prev = null;
+
+            if (this.getSize() === 1) {
+               this.head == this.tail == null;
+            } else {
+                this.head = this.head.next;
+                this.head.prev = null;
+            }
+
             this.size -= 1;
 
             return nodeToRemove;
