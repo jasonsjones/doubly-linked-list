@@ -1,7 +1,7 @@
 /**
  * @fileOverview Implementation of a doubly linked-list data structure
  * @author Jason S. Jones
- * @version 0.1.3
+ * @version 0.1.4
  * @license MIT
  */
 
@@ -278,16 +278,16 @@
                 return null;
             }
 
-            var nodeToRemove = this.getHeadNode();
+            var nodeToRemove;
 
             if (this.getSize() === 1) {
-               this.head = this.tail = null;
+                nodeToRemove = this.remove();
             } else {
+                nodeToRemove = this.getHeadNode();
                 this.head = this.head.next;
                 this.head.prev = null;
+                this.size -= 1;
             }
-
-            this.size -= 1;
 
             return nodeToRemove;
         },

@@ -221,6 +221,13 @@ describe('Linked List', function() {
             first.hasPrev().should.equal(false);
         });
 
+        it('should remove item from the front of a list with only one node', function () {
+            list.insert('test item 1');
+            var node = list.removeFirst();
+            node.getData().should.equal('test item 1');
+            list.getSize().should.equal(0);
+        });
+
         it('should remove item at a particulary index', function() {
             populateList(list, 4);
             list.getSize().should.equal(4);
