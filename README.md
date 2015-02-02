@@ -1,4 +1,4 @@
-[![npm pkg][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![dependency status][dm-url]][dm-image]
+[![npm pkg][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![dependency status][dm-image]][dm-url]
 
 # Doubly Linked List
 
@@ -225,5 +225,5 @@ MIT &copy; Jason Jones
 [npm-url]:http://npmjs.org/package/dbly-linked-list
 [travis-image]:https://travis-ci.org/jasonsjones/doubly-linked-list.svg
 [travis-url]:https://travis-ci.org/jasonsjones/doubly-linked-list
-[dm-image]:https://david-dm.org/jasonsjones/doubly-linked-list
-[dm-url]:https://david-dm.org/jasonsjones/doubly-linked-list.svg
+[dm-url]:https://david-dm.org/jasonsjones/doubly-linked-list
+[dm-image]:https://david-dm.org/jasonsjones/doubly-linked-list.svg
