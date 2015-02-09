@@ -44,15 +44,15 @@ describe('Linked List', function() {
     it('should return an array of all the data in the list', function() {
         list.insert({
             id: 1,
-            name: "test item 1"
+            name: 'test item 1'
         });
         list.insert({
             id: 2,
-            name: "test item 2"
+            name: 'test item 2'
         });
         list.insert({
             id: 3,
-            name: "test item 3"
+            name: 'test item 3'
         });
         var listArray = list.toArray();
         listArray.should.be.an.Array;
@@ -74,7 +74,7 @@ describe('Linked List', function() {
               populateList(list, 10);
               var first = list.iterator.first();
               first.should.equal(list.getHeadNode());
-        });
+          });
 
         it('should return correct boolean value for hasNext()', function() {
             populateList(list, 3);
@@ -260,14 +260,14 @@ describe('Linked List', function() {
                 var node = list.find('not found...');
                 node.should.not.be.an.Object;
                 node.should.equal(-1);
-        });
+            });
 
         it('should return -1 if find() is called on an empty list',
             function() {
                 var node = list.find('not found...');
                 node.should.not.be.an.Object;
                 node.should.equal(-1);
-        });
+            });
 
         it('should return the index of node containing the provided data',
             function() {
@@ -280,15 +280,15 @@ describe('Linked List', function() {
 
                 index = list.indexOf('test item 3');
                 index.should.equal(2);
-        });
+            });
 
         it('should return -1 for the index of node with the given data if the' +
            'node does not exist',
-               function() {
-                   populateList(list, 3);
-                   var index = list.indexOf('not found');
-                   index.should.equal(-1);
-        });
+                function() {
+                    populateList(list, 3);
+                    var index = list.indexOf('not found');
+                    index.should.equal(-1);
+                });
 
         it('should return node at given index', function() {
             list.insert('test item 1');
@@ -307,17 +307,17 @@ describe('Linked List', function() {
                 var node = list.findAt(0);
                 node.should.not.be.an.Object;
                 node.should.equal(-1);
-        });
+            });
 
         it('should return true if list contains specified data,' +
-            'false otherwise', function () {
-                populateList(list, 3);
-                var result = list.contains('test item 2');
-                result.should.equal(true);
+           'false otherwise',
+                function () {
+                    populateList(list, 3);
+                    var result = list.contains('test item 2');
+                    result.should.equal(true);
 
-                result = list.contains('not found');
-                result.should.equal(false);
-        });
+                    result = list.contains('not found');
+                    result.should.equal(false);
+                });
     });
 });
-
