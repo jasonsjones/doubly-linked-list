@@ -459,4 +459,4 @@
 
     module.exports = DoublyLinkedList;
 
-})();
+}());
