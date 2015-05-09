@@ -254,6 +254,13 @@ describe('Linked List', function() {
             node.getData().should.equal('test item 2');
         });
 
+        it('should find a node with a complex obj', function () {
+            list.insert({key: 'key', value: 'value123'});
+            var node = list.find({key: 'key', value: 'value123'});
+            node.getData().should.be.an.Object;
+            node.getData().should.have.properties(['key', 'value']);
+        });
+
         it('should return -1 if a node does not exist with the given data',
             function() {
                 populateList(list, 3);
