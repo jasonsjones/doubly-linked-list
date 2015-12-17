@@ -422,7 +422,7 @@
          *        contains
          * @returns the true if the list contains nodeData, false otherwise
          */
-         contains: function (nodeData) {
+        contains: function (nodeData) {
              if (this.indexOf(nodeData) > -1) {
                  return true;
              } else {
