@@ -1,4 +1,4 @@
-[![npm pkg][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![dependency status][dm-image]][dm-url]
+[![npm pkg][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![dependency status][dm-image]][dm-url] [![devDependency status][devdep-image]][devdep-url]
 
 # Doubly Linked List
 
@@ -227,3 +227,5 @@ MIT &copy; Jason Jones
 [travis-url]:https://travis-ci.org/jasonsjones/doubly-linked-list
 [dm-image]:https://david-dm.org/jasonsjones/doubly-linked-list.svg
 [dm-url]:https://david-dm.org/jasonsjones/doubly-linked-list
+[devdep-image]:https://david-dm.org/jasonsjones/doubly-linked-list/dev-status.svg
+[devdep-url]:https://david-dm.org/jasonsjones/doubly-linked-list#info=devDependencies
