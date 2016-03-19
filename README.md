@@ -1,4 +1,7 @@
-[![npm pkg][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![dependency status][dm-image]][dm-url] [![devDependency status][devdep-image]][devdep-url]
+[![npm pkg][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![dependency status][dm-image]][dm-url]
+[![devDependency status][devdep-image]][devdep-url]
 
 # Doubly Linked List
 
@@ -221,11 +224,11 @@ list.isEmpty();
 MIT &copy; Jason Jones
 
 
-[npm-image]:https://badge.fury.io/js/dbly-linked-list.svg
+[npm-image]:https://img.shields.io/npm/v/dbly-linked-list.svg?style=flat-square
 [npm-url]:http://npmjs.org/package/dbly-linked-list
-[travis-image]:https://travis-ci.org/jasonsjones/doubly-linked-list.svg
+[travis-image]:https://img.shields.io/travis/jasonsjones/doubly-linked-list.svg?style=flat-square
 [travis-url]:https://travis-ci.org/jasonsjones/doubly-linked-list
-[dm-image]:https://david-dm.org/jasonsjones/doubly-linked-list.svg
+[dm-image]:https://img.shields.io/david/jasonsjones/doubly-linked-list.svg?style=flat-square
 [dm-url]:https://david-dm.org/jasonsjones/doubly-linked-list
-[devdep-image]:https://david-dm.org/jasonsjones/doubly-linked-list/dev-status.svg
+[devdep-image]:https://img.shields.io/david/dev/jasonsjones/doubly-linked-list/dev-status.svg?style=flat-square
 [devdep-url]:https://david-dm.org/jasonsjones/doubly-linked-list#info=devDependencies
