@@ -230,5 +230,5 @@ MIT &copy; Jason Jones
 [travis-url]:https://travis-ci.org/jasonsjones/doubly-linked-list
 [dm-image]:https://img.shields.io/david/jasonsjones/doubly-linked-list.svg?style=flat-square
 [dm-url]:https://david-dm.org/jasonsjones/doubly-linked-list
-[devdep-image]:https://img.shields.io/david/dev/jasonsjones/doubly-linked-list/dev-status.svg?style=flat-square
+[devdep-image]:https://img.shields.io/david/dev/jasonsjones/doubly-linked-list.svg?style=flat-square
 [devdep-url]:https://david-dm.org/jasonsjones/doubly-linked-list#info=devDependencies
