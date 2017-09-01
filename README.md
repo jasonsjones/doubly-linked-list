@@ -90,7 +90,7 @@ API section._
 
 ```javascript
 var LinkedList = require('dbly-linked-list');
-var list - new LinkedList();
+var list = new LinkedList();
 
 list.isEmpty();
 // --> true
