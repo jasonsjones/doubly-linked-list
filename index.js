@@ -435,11 +435,18 @@
          * Utility function to iterate over the list and call the fn provided
          * on each node, or element, of the list
          *
-         * param {object} fn The function to call on each node of the list
+         * @param {object} fn The function to call on each node of the list
+         * @param {bool} reverse Use or not reverse iteration (tail to head), default to false
          */
-        forEach: function(fn) {
+        forEach: function(fn, reverse) {
+          reverse = reverse || false;
+          if (reverse) {
+            this.iterator.reset_reverse();
+            this.iterator.each_reverse(fn)
+          } else {
             this.iterator.reset();
             this.iterator.each(fn);
+          }
         },
 
         /**
@@ -454,6 +461,13 @@
             });
 
             return listArray;
+        },
+
+        /**
+         * Interrupts iteration over the list
+         */
+        interruptEnumeration: function() {
+          this.iterator.interrupt();
         }
     };
 
