@@ -192,15 +192,20 @@ list.isEmpty();
 * ### findAt(index)
     Returns the node at the location provided by `index`
 
-* ### forEach(fn)
+* ### forEach(fn, reverse)
     Utility function to iterate over the list and call the `fn` provided
-    on each node, or element, of the list
+    on each node, or element, of the list. The optional `reverse` parameter
+    is a boolean used to specify the direction of iteration
+    (true: tail -> head, false: head -> tail, default: false)
 
 * ### toArray()
     Returns an array of all the data contained in the list
 
 * ### printList()
     Prints to the console the data property of each node in the list
+
+* ### interruptEnumeration()
+    Interrupts and breaks out of the loop induced by `forEach()`, making partial iterations possible. An iteration cannot be resumed after having been interrupted.
 
 **Available methods for an individual node instance:**
 

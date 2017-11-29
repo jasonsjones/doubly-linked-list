@@ -69,6 +69,12 @@ describe('Linked List', function() {
               should.not.exist(list.iterator.next());
           });
 
+        it('should return the tail node when iterator.last() is called', function() {
+          populateList(list, 10);
+          var last = list.iterator.last();
+          last.should.equal(list.getTailNode());
+        })
+
         it('should return the head node when iterator.first() is called',
           function() {
               populateList(list, 10);
@@ -95,6 +101,70 @@ describe('Linked List', function() {
             // should be no more element in list
             list.iterator.hasNext().should.equal(false);
         });
+
+        it('should return correct boolean value for hasNext() in reverse order', function() {
+          populateList(list, 3);
+          list.iterator.reset_reverse();
+
+          list.iterator.hasNext().should.equal(true);
+          list.iterator.next_reverse();
+
+          list.iterator.hasNext().should.equal(true);
+          list.iterator.next_reverse();
+
+          list.iterator.hasNext().should.equal(true);
+          list.iterator.next_reverse();
+
+          list.iterator.hasNext().should.equal(false);
+        });
+
+        it('should go through elements from head to tail when calling iterator.each()', function() {
+          populateList(list, 3);
+          var array = [];
+          //expected result
+          var expectedArray = ["test item 1", "test item 2", "test item 3"];
+          var dummyCallback = function(node) {
+            array.push(node.getData());
+          }
+          list.iterator.reset()
+          list.iterator.each(dummyCallback);
+          array.should.be.eql(expectedArray);
+        });
+
+        it('should go through elements from tail to head when calling iterator.each_reverse()', function() {
+          populateList(list, 3);
+          var array = [];
+          var expectedArray = ["test item 3", "test item 2", "test item 1"];
+          var dummyCallback = function(node) {
+            array.push(node.getData());
+          };
+          list.iterator.reset_reverse();
+          list.iterator.each_reverse(dummyCallback);
+          array.should.be.eql(expectedArray);
+        });
+
+        it('should stop in the middle of iteration if iterator.interrupt() is called', function() {
+          populateList(list, 5);
+          var count = 0;
+          var dummyCallback = function(node) {
+            count += 1;
+            if (count === 3) {
+              list.iterator.interrupt();
+            }
+          };
+
+          // head to tail
+          list.iterator.reset();
+          list.iterator.each(dummyCallback);
+          count.should.be.equal(3);
+
+          // tail to head
+          count = 0;
+          list.iterator.reset_reverse();
+          list.iterator.each_reverse(dummyCallback);
+          count.should.be.equal(3);
+        })
+
     });
 
     describe('insert functionality', function() {
