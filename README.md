@@ -1,7 +1,8 @@
 [![npm pkg][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status][circleci-image]][circleci-url]
 [![dependency status][dm-image]][dm-url]
 [![devDependency status][devdep-image]][devdep-url]
+[![npm](https://img.shields.io/npm/l/dbly-linked-list.svg?style=flat-square)]()
 
 # Doubly Linked List
 
@@ -229,11 +230,11 @@ list.isEmpty();
 MIT &copy; Jason Jones
 
 
-[npm-image]:https://img.shields.io/npm/v/dbly-linked-list.svg?style=flat-square
-[npm-url]:http://npmjs.org/package/dbly-linked-list
-[travis-image]:https://img.shields.io/travis/jasonsjones/doubly-linked-list.svg?style=flat-square
-[travis-url]:https://travis-ci.org/jasonsjones/doubly-linked-list
-[dm-image]:https://img.shields.io/david/jasonsjones/doubly-linked-list.svg?style=flat-square
-[dm-url]:https://david-dm.org/jasonsjones/doubly-linked-list
-[devdep-image]:https://img.shields.io/david/dev/jasonsjones/doubly-linked-list.svg?style=flat-square
-[devdep-url]:https://david-dm.org/jasonsjones/doubly-linked-list#info=devDependencies
+[npm-image]: https://img.shields.io/npm/v/dbly-linked-list.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/dbly-linked-list
+[circleci-image]: https://img.shields.io/circleci/project/github/jasonsjones/doubly-linked-list.svg?style=flat-square
+[circleci-url]: https://circleci.com/gh/jasonsjones/doubly-linked-list
+[dm-image]: https://img.shields.io/david/jasonsjones/doubly-linked-list.svg?style=flat-square
+[dm-url]: https://david-dm.org/jasonsjones/doubly-linked-list
+[devdep-image]: https://img.shields.io/david/dev/jasonsjones/doubly-linked-list.svg?style=flat-square
+[devdep-url]: https://david-dm.org/jasonsjones/doubly-linked-list?type=dev
