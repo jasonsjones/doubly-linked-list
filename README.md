@@ -84,6 +84,12 @@ Install with npm :
 npm install dbly-linked-list --save
 ```
 
+Install with yarn :
+
+```sh
+yarn add dbly-linked-list
+```
+
 Basic usage example below.  _Note: it does not cover all the available
 methods, rather just highlights the main functionality to get up and running
 with this data structure. For a description of all the methods, see the
