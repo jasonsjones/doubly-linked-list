@@ -162,7 +162,6 @@
         insertAt: function (index, data) {
             var current = this.getHeadNode(),
                 newNode = this.createNewNode(data),
-                previous = null,
                 position = 0;
 
             // check for index out-of-bounds
@@ -177,7 +176,6 @@
             }
 
             while (position < index) {
-                previous = current;
                 current = current.next;
                 position += 1;
             }

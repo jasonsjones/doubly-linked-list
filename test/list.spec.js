@@ -146,7 +146,7 @@ describe('Linked List', function() {
         it('should stop in the middle of iteration if iterator.interrupt() is called', function() {
           populateList(list, 5);
           var count = 0;
-          var dummyCallback = function(node) {
+          var dummyCallback = function() {
             count += 1;
             if (count === 3) {
               list.iterator.interrupt();
