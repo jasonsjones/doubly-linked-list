@@ -1,9 +1,11 @@
 /* globals describe it beforeEach afterEach */
 
-var should = require('should');
+var chai = require('chai');
 var LinkedList = require('../');
 
-describe('Linked List', function() {
+var expect = chai.expect;
+
+describe('Linked List', function () {
     var list = null;
 
     // Utility function to populate the list with dummy data.
@@ -15,33 +17,29 @@ describe('Linked List', function() {
         }
     };
 
-    beforeEach(function() {
+    beforeEach(function () {
         list = new LinkedList();
     });
 
-    afterEach(function() {
+    afterEach(function () {
         list = null;
     });
 
-    it('should have a working test environment', function() {
-        true.should.equal(true);
+    it('initially contains zero items', function () {
+        expect(list.isEmpty()).to.be.true
+        expect(list.getSize()).to.equal(0);
     });
 
-    it('should initially contain zero items', function() {
-        list.isEmpty().should.equal(true);
-        list.getSize().should.equal(0);
-    });
-
-    it('should clear the list and set head and tail to null', function () {
+    it('clears the list and set head and tail to null', function () {
         populateList(list, 10);
-        list.getSize().should.equal(10);
+        expect(list.getSize()).to.equal(10);
         list.clear();
-        list.getSize().should.equal(0);
-        should.not.exist(list.getHeadNode());
-        should.not.exist(list.getTailNode());
+        expect(list.getSize()).to.equal(0);
+        expect(list.getHeadNode()).to.not.exist;
+        expect(list.getTailNode()).to.not.exist;
     });
 
-    it('should return an array of all the data in the list', function() {
+    it('returns an array of all the data in the list', function () {
         list.insert({
             id: 1,
             name: 'test item 1'
@@ -55,346 +53,345 @@ describe('Linked List', function() {
             name: 'test item 3'
         });
         var listArray = list.toArray();
-        listArray.should.be.an.Array;
-        listArray.should.have.length(3);
+        expect(listArray).to.be.an('array');
+        expect(listArray.length).to.equal(3);
     });
 
-    describe('iterator functionality', function() {
-        it('should exist when a list is instantiated', function() {
-            list.iterator.should.be.ok;
+    describe('iterator functionality', function () {
+        it('exists when a list is instantiated', function () {
+            expect(list.iterator).to.exist
         });
 
-        it('should have iterator currentNode be null when first instantiated',
-          function() {
-              should.not.exist(list.iterator.next());
+        it('iterator currentNode is null when first instantiated',
+          function () {
+              expect(list.iterator.next()).to.not.exist;
           });
 
-        it('should return the tail node when iterator.last() is called', function() {
+        it('returns the tail node when iterator.last() is called', function () {
           populateList(list, 10);
           var last = list.iterator.last();
-          last.should.equal(list.getTailNode());
+          expect(last).to.equal(list.getTailNode());
         })
 
-        it('should return the head node when iterator.first() is called',
-          function() {
+        it('returns the head node when iterator.first() is called',
+          function () {
               populateList(list, 10);
               var first = list.iterator.first();
-              first.should.equal(list.getHeadNode());
+              expect(first).to.equal(list.getHeadNode());
           });
 
-        it('should return correct boolean value for hasNext()', function() {
+        it('returns correct boolean value for hasNext()', function () {
             populateList(list, 3);
             list.iterator.reset();
 
-            list.iterator.hasNext().should.equal(true);
+            expect(list.iterator.hasNext()).to.be.true;
             // get first element
             list.iterator.next();
 
-            list.iterator.hasNext().should.equal(true);
+            expect(list.iterator.hasNext()).to.be.true;
             // get second element
             list.iterator.next();
 
-            list.iterator.hasNext().should.equal(true);
+            expect(list.iterator.hasNext()).to.be.true;
             // get third element
             list.iterator.next();
 
             // should be no more element in list
-            list.iterator.hasNext().should.equal(false);
+            expect(list.iterator.hasNext()).to.be.false;
         });
 
-        it('should return correct boolean value for hasNext() in reverse order', function() {
-          populateList(list, 3);
-          list.iterator.reset_reverse();
+        it('returns correct boolean value for hasNext() in reverse order', function () {
+            populateList(list, 3);
+            list.iterator.reset_reverse();
 
-          list.iterator.hasNext().should.equal(true);
-          list.iterator.next_reverse();
+            expect(list.iterator.hasNext()).to.be.true;
+            list.iterator.next_reverse();
 
-          list.iterator.hasNext().should.equal(true);
-          list.iterator.next_reverse();
+            expect(list.iterator.hasNext()).to.be.true;
+            list.iterator.next_reverse();
 
-          list.iterator.hasNext().should.equal(true);
-          list.iterator.next_reverse();
+            expect(list.iterator.hasNext()).to.be.true;
+            list.iterator.next_reverse();
 
-          list.iterator.hasNext().should.equal(false);
+            expect(list.iterator.hasNext()).to.be.false;
         });
 
-        it('should go through elements from head to tail when calling iterator.each()', function() {
-          populateList(list, 3);
-          var array = [];
-          //expected result
-          var expectedArray = ["test item 1", "test item 2", "test item 3"];
-          var dummyCallback = function(node) {
-            array.push(node.getData());
-          }
-          list.iterator.reset()
-          list.iterator.each(dummyCallback);
-          array.should.be.eql(expectedArray);
-        });
-
-        it('should go through elements from tail to head when calling iterator.each_reverse()', function() {
-          populateList(list, 3);
-          var array = [];
-          var expectedArray = ["test item 3", "test item 2", "test item 1"];
-          var dummyCallback = function(node) {
-            array.push(node.getData());
-          };
-          list.iterator.reset_reverse();
-          list.iterator.each_reverse(dummyCallback);
-          array.should.be.eql(expectedArray);
-        });
-
-        it('should stop in the middle of iteration if iterator.interrupt() is called', function() {
-          populateList(list, 5);
-          var count = 0;
-          var dummyCallback = function() {
-            count += 1;
-            if (count === 3) {
-              list.iterator.interrupt();
+        it('iterates through elements from head to tail when calling iterator.each()', function () {
+            populateList(list, 3);
+            var array = [];
+            //expected result
+            var expectedArray = ['test item 1', 'test item 2', 'test item 3'];
+            var dummyCallback = function (node) {
+                array.push(node.getData());
             }
-          };
+            list.iterator.reset()
+            list.iterator.each(dummyCallback);
+            expect(array).to.eql(expectedArray);
+        });
 
-          // head to tail
-          list.iterator.reset();
-          list.iterator.each(dummyCallback);
-          count.should.be.equal(3);
+        it('iterates through elements from tail to head when calling iterator.each_reverse()', function () {
+            populateList(list, 3);
+            var array = [];
+            var expectedArray = ['test item 3', 'test item 2', 'test item 1'];
+            var dummyCallback = function (node) {
+                array.push(node.getData());
+            };
+            list.iterator.reset_reverse();
+            list.iterator.each_reverse(dummyCallback);
+            expect(array).to.eql(expectedArray);
+        });
 
-          // tail to head
-          count = 0;
-          list.iterator.reset_reverse();
-          list.iterator.each_reverse(dummyCallback);
-          count.should.be.equal(3);
-        })
+        it('stops in the middle of iteration if iterator.interrupt() is called', function () {
+            populateList(list, 5);
+            var count = 0;
+            var dummyCallback = function () {
+                count += 1;
+                if (count === 3) {
+                    list.iterator.interrupt();
+                }
+            };
 
+            // head to tail
+            list.iterator.reset();
+            list.iterator.each(dummyCallback);
+            expect(count).to.equal(3);
+
+            // tail to head
+            count = 0;
+            list.iterator.reset_reverse();
+            list.iterator.each_reverse(dummyCallback);
+            expect(count).to.equal(3);
+        });
     });
 
-    describe('insert functionality', function() {
-        it('should set the head node equal to the tail node when first item ' +
-           'is inserted', function() {
+    describe('insert functionality', function () {
+        it('sets the head node equal to the tail node when first item ' +
+           'is inserted', function () {
             list.insert('test item 1');
-            list.getHeadNode().should.equal(list.getTailNode());
-            list.getSize().should.equal(1);
+            expect(list.getHeadNode()).to.eql(list.getTailNode());
+            expect(list.getSize()).to.equal(1);
         });
 
-        it('should insert items to the back of the list', function() {
+        it('inserts items to the back of the list', function () {
             populateList(list, 5);
-            list.isEmpty().should.equal(false);
-            list.getSize().should.equal(5);
+            expect(list.isEmpty()).to.be.false;
+            expect(list.getSize()).to.equal(5);
             var tail = list.getTailNode();
-            tail.getData().should.equal('test item 5');
+            expect(tail.getData()).to.equal('test item 5');
         });
 
-        it('should insert items to the front of the list', function() {
+        it('inserts items to the front of the list', function () {
             list.insert('test item 1');
             list.insert('test item 2');
             list.insertFirst('new item 0');
-            list.getHeadNode().data.should.equal('new item 0');
-            list.getHeadNode().hasPrev().should.equal(false);
-            list.getSize().should.equal(3);
+            expect(list.getHeadNode().data).to.equal('new item 0');
+            expect(list.getHeadNode().hasPrev()).to.be.false;
+            expect(list.getSize()).to.equal(3);
         });
 
-        it('should insert item at a particular index', function() {
+        it('inserts item at a particular index', function () {
             populateList(list, 3);
             list.insert('test item 5');
-            list.getSize().should.equal(4);
+            expect(list.getSize()).to.equal(4);
             var success = list.insertAt(3, 'test item 4');
-            success.should.equal(true);
-            list.getSize().should.equal(5);
+            expect(success).to.be.true;
+            expect(list.getSize()).to.equal(5);
             var node = list.findAt(3);
-            node.getData().should.equal('test item 4');
+            expect(node.getData()).to.equal('test item 4');
         });
 
-        it('should insert new head node when inserting at index 0', function() {
+        it('inserts new head node when inserting at index 0', function () {
             populateList(list, 3);
-            list.getSize().should.equal(3);
+            expect(list.getSize()).to.equal(3);
             var success = list.insertAt(0, 'test item 0');
-            success.should.equal(true);
-            list.getSize().should.equal(4);
+            expect(success).to.be.true;
+            expect(list.getSize()).to.equal(4);
             var node = list.getHeadNode();
-            node.getData().should.equal('test item 0');
+            expect(node.getData()).to.equal('test item 0');
         });
 
-        it('should return false when trying to insert at index out of bounds', function() {
+        it('returns false when trying to insert at index out of bounds', function () {
             populateList(list, 3);
             var success = list.insertAt(5, 'test item 4');
-            success.should.equal(false);
+            expect(success).to.be.false;
         });
 
-        it('should insert item before a particular node', function () {
+        it('inserts item before a particular node', function () {
             populateList(list, 3);
             list.insert('test item 5');
-            list.getSize().should.equal(4);
+            expect(list.getSize()).to.equal(4);
 
             list.insertBefore('test item 5', 'test item 4');
-            list.getSize().should.equal(5);
+            expect(list.getSize()).to.equal(5);
             var node = list.findAt(3);
-            node.getData().should.equal('test item 4');
+            expect(node.getData()).to.equal('test item 4');
 
             // test for inserting before the head node
             list.insertBefore('test item 1', 'test item 0');
-            list.getSize().should.equal(6);
+            expect(list.getSize()).to.equal(6);
             node = list.getHeadNode();
-            node.getData().should.equal('test item 0');
+            expect(node.getData()).to.equal('test item 0');
         });
 
-        it('should insert item after a particular node', function () {
+        it('inserts item after a particular node', function () {
             populateList(list, 3);
             list.insert('test item 5');
-            list.getSize().should.equal(4);
+            expect(list.getSize()).to.equal(4);
 
             list.insertAfter('test item 3', 'test item 4');
-            list.getSize().should.equal(5);
+            expect(list.getSize()).to.equal(5);
             var node = list.findAt(3);
-            node.getData().should.equal('test item 4');
+            expect(node.getData()).to.equal('test item 4');
 
             // test for inserting after the tail node
             list.insertAfter('test item 5', 'test item 6');
-            list.getSize().should.equal(6);
+            expect(list.getSize()).to.equal(6);
             node = list.getTailNode();
-            node.getData().should.equal('test item 6');
+            expect(node.getData()).to.equal('test item 6');
         });
     });
 
-    describe('remove functionality', function() {
-        it('should return null if remove is called on an empty list',
-           function() {
+    describe('remove functionality', function () {
+        it('returns null if remove is called on an empty list',
+           function () {
             var node = list.remove();
-            should.not.exist(node);
+            expect(node).to.not.exist;
         });
 
-        it('should remove items from the back of the list', function() {
+        it('removes items from the back of the list', function () {
             populateList(list, 3);
-            list.isEmpty().should.equal(false);
-            list.getSize().should.equal(3);
+            expect(list.isEmpty()).to.be.false;
+            expect(list.getSize()).to.equal(3);
             var node = list.remove();
-            node.getData().should.equal('test item 3');
-            list.getSize().should.equal(2);
+            expect(node.getData()).to.equal('test item 3');
+            expect(list.getSize()).to.equal(2);
             var last = list.getTailNode();
-            last.getData().should.equal('test item 2');
-            last.hasNext().should.equal(false);
+            expect(last.getData()).to.equal('test item 2');
+            expect(last.hasNext()).to.be.false;
         });
 
-        it('should return null if removeFirst is called on an empty list',
-           function() {
+        it('returns null if removeFirst is called on an empty list',
+           function () {
             var node = list.removeFirst();
-            should.not.exist(node);
+            expect(node).to.not.exist;
         });
 
-        it('should remove items from the front of the list', function() {
+        it('removes items from the front of the list', function () {
             populateList(list, 3);
-            list.isEmpty().should.equal(false);
-            list.getSize().should.equal(3);
+            expect(list.isEmpty()).to.be.false;
+            expect(list.getSize()).to.equal(3);
             var node = list.removeFirst();
-            node.getData().should.equal('test item 1');
-            list.getSize().should.equal(2);
+            expect(node.getData()).to.equal('test item 1');
+            expect(list.getSize()).to.equal(2);
             var first = list.getHeadNode();
-            first.getData().should.equal('test item 2');
-            first.hasPrev().should.equal(false);
+            expect(first.getData()).to.equal('test item 2');
+            expect(first.hasPrev()).to.be.false;
         });
 
-        it('should remove item from the front of a list with only one node', function () {
+        it('removes item from the front of a list with only one node', function () {
             list.insert('test item 1');
             var node = list.removeFirst();
-            node.getData().should.equal('test item 1');
-            list.getSize().should.equal(0);
+            expect(node.getData()).to.equal('test item 1');
+            expect(list.getSize()).to.equal(0);
         });
 
-        it('should remove item at a particulary index', function() {
+        it('removes item at a particulary index', function () {
             populateList(list, 4);
-            list.getSize().should.equal(4);
+            expect(list.getSize()).to.equal(4);
             var node = list.removeAt(1);
-            node.getData().should.equal('test item 2');
-            list.getSize().should.equal(3);
+            expect(node.getData()).to.equal('test item 2');
+            expect(list.getSize()).to.equal(3);
         });
 
-        it('should remove a node with given data', function() {
+        it('removes a node with given data', function () {
             populateList(list, 4);
-            list.getSize().should.equal(4);
+            expect(list.getSize()).to.equal(4);
             var node = list.removeNode('test item 3');
-            node.getData().should.equal('test item 3');
-            list.getSize().should.equal(3);
+            expect(node.getData()).to.equal('test item 3');
+            expect(list.getSize()).to.equal(3);
         });
 
     });
 
-    describe('find functionality', function() {
-        it('should find a node with the data provided', function() {
+    describe('find functionality', function () {
+        it('finds a node with the data provided', function () {
             populateList(list, 3);
             var node = list.find('test item 2');
-            node.should.be.an.Object;
-            node.getData().should.equal('test item 2');
+            expect(node).to.be.an('object');
+            expect(node.getData()).to.equal('test item 2');
         });
 
-        it('should find a node with a complex obj', function () {
+        it('finds a node with a complex obj', function () {
             list.insert({key: 'key', value: 'value123'});
             var node = list.find({key: 'key', value: 'value123'});
-            node.getData().should.be.an.Object;
-            node.getData().should.have.properties(['key', 'value']);
+            expect(node).to.be.an('object');
+            expect(node.getData()).to.have.property('value');
+            expect(node.getData()).to.have.property('key');
         });
 
-        it('should return -1 if a node does not exist with the given data',
-            function() {
+        it('returns -1 if a node does not exist with the given data',
+            function () {
                 populateList(list, 3);
                 var node = list.find('not found...');
-                node.should.not.be.an.Object;
-                node.should.equal(-1);
+                expect(node).to.not.be.an('object');
+                expect(node).to.equal(-1);
             });
 
-        it('should return -1 if find() is called on an empty list',
-            function() {
+        it('returns -1 if find() is called on an empty list',
+            function () {
                 var node = list.find('not found...');
-                node.should.not.be.an.Object;
-                node.should.equal(-1);
+                expect(node).to.not.be.an('object');
+                expect(node).to.equal(-1);
             });
 
-        it('should return the index of node containing the provided data',
-            function() {
+        it('returns the index of node containing the provided data',
+            function () {
                 populateList(list, 3);
                 var index = list.indexOf('test item 1');
-                index.should.equal(0);
+                expect(index).to.equal(0);
 
                 index = list.indexOf('test item 2');
-                index.should.equal(1);
+                expect(index).to.equal(1);
 
                 index = list.indexOf('test item 3');
-                index.should.equal(2);
+                expect(index).to.equal(2);
             });
 
-        it('should return -1 for the index of node with the given data if the' +
+        it('returns -1 for the index of node with the given data if the' +
            'node does not exist',
-                function() {
+                function () {
                     populateList(list, 3);
                     var index = list.indexOf('not found');
-                    index.should.equal(-1);
+                    expect(index).to.equal(-1);
                 });
 
-        it('should return node at given index', function() {
+        it('returns node at given index', function () {
             list.insert('test item 1');
             list.insert('test item 2');
             var node = list.findAt(0);
-            node.should.be.an.Object;
-            node.getData().should.equal('test item 1');
+            expect(node).to.be.an('object');
+            expect(node.getData()).to.equal('test item 1');
 
             node = list.findAt(1);
-            node.should.be.an.Object;
-            node.getData().should.equal('test item 2');
+            expect(node).to.be.an('object');
+            expect(node.getData()).to.equal('test item 2');
         });
 
-        it('should return -1 when findAt() is called w/ index > than list size',
-            function() {
+        it('returns -1 when findAt() is called w/ index > than list size',
+            function () {
                 var node = list.findAt(0);
-                node.should.not.be.an.Object;
-                node.should.equal(-1);
+                expect(node).to.not.be.an('object');
+                expect(node).to.equal(-1);
             });
 
-        it('should return true if list contains specified data,' +
-           'false otherwise',
-                function () {
-                    populateList(list, 3);
-                    var result = list.contains('test item 2');
-                    result.should.equal(true);
+        it('returns true if list contains specified data; false otherwise',
+            function () {
+                populateList(list, 3);
+                var result = list.contains('test item 2');
+                expect(result).to.be.true;
 
-                    result = list.contains('not found');
-                    result.should.equal(false);
-                });
+                result = list.contains('not found');
+                expect(result).to.be.false;
+            });
     });
 });
