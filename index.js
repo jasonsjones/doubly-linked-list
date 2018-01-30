@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-(function() {
+(function () {
     'use strict';
 
     var isEqual = require('lodash.isequal');
@@ -56,7 +56,7 @@
          *                                    node
          * @returns {object} Node object intialized with 'data'
          */
-        createNewNode: function(data) {
+        createNewNode: function (data) {
             return new Node(data);
         },
 
@@ -66,7 +66,7 @@
          *
          * @returns {object} the head node of the list
          */
-        getHeadNode: function() {
+        getHeadNode: function () {
             return this.head;
         },
 
@@ -76,7 +76,7 @@
          *
          * @returns {object} the tail node of the list
          */
-        getTailNode: function() {
+        getTailNode: function () {
             return this.tail;
         },
 
@@ -85,7 +85,7 @@
          *
          * @returns {boolean} true if the list is empty, false otherwise
          */
-        isEmpty: function() {
+        isEmpty: function () {
             return (this.size === 0);
         },
 
@@ -94,7 +94,7 @@
          *
          * @returns {number} the number of nodes in the list
          */
-        getSize: function() {
+        getSize: function () {
             return this.size;
         },
 
@@ -116,7 +116,7 @@
          *                                    node
          * @returns {boolean} true if insert operation was successful
          */
-        insert: function(data) {
+        insert: function (data) {
             var newNode = this.createNewNode(data);
             if (this.isEmpty()) {
                 this.head = this.tail = newNode;
@@ -137,7 +137,7 @@
          *                                    node
          * @returns {boolean} true if insert operation was successful
          */
-        insertFirst: function(data) {
+        insertFirst: function (data) {
             if (this.isEmpty()) {
                 this.insert(data);
             } else {
@@ -240,7 +240,7 @@
          *
          * @returns the node that was removed
          */
-        remove: function() {
+        remove: function () {
             if (this.isEmpty()) {
                 return null;
             }
@@ -269,7 +269,7 @@
          *
          * @returns the node that was removed
          */
-        removeFirst: function() {
+        removeFirst: function () {
             if (this.isEmpty()) {
                 return null;
             }
@@ -342,7 +342,7 @@
          * @param {object|string|number} nodeData The data of the node to find
          * @returns the index of the node if found, -1 otherwise
          */
-        indexOf: function(nodeData) {
+        indexOf: function (nodeData) {
             this.iterator.reset();
             var current;
 
@@ -369,7 +369,7 @@
          * @param {object|string|number} nodeData The data of the node to find
          * @returns the node if found, -1 otherwise
          */
-        find: function(nodeData) {
+        find: function (nodeData) {
             // start at the head of the list
             this.iterator.reset();
             var current;
@@ -393,7 +393,7 @@
          * @param {number} index The index of the node to return
          * @returns the node located at the index provided.
          */
-        findAt: function(index) {
+        findAt: function (index) {
             // if idx is out of bounds or fn called on empty list, return -1
             if (this.isEmpty() || index > this.getSize() - 1) {
                 return -1;
@@ -420,12 +420,12 @@
          * @returns the true if the list contains nodeData, false otherwise
          */
         contains: function (nodeData) {
-             if (this.indexOf(nodeData) > -1) {
-                 return true;
-             } else {
-                 return false;
-             }
-         },
+            if (this.indexOf(nodeData) > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        },
 
         //################## UTILITY methods ####################
 
@@ -436,15 +436,15 @@
          * @param {object} fn The function to call on each node of the list
          * @param {bool} reverse Use or not reverse iteration (tail to head), default to false
          */
-        forEach: function(fn, reverse) {
-          reverse = reverse || false;
-          if (reverse) {
-            this.iterator.reset_reverse();
-            this.iterator.each_reverse(fn)
-          } else {
-            this.iterator.reset();
-            this.iterator.each(fn);
-          }
+        forEach: function (fn, reverse) {
+            reverse = reverse || false;
+            if (reverse) {
+                this.iterator.reset_reverse();
+                this.iterator.each_reverse(fn);
+            } else {
+                this.iterator.reset();
+                this.iterator.each(fn);
+            }
         },
 
         /**
@@ -452,9 +452,9 @@
          *
          * @returns {array} the array of all the data from the list
          */
-        toArray: function() {
+        toArray: function () {
             var listArray = [];
-            this.forEach(function(node) {
+            this.forEach(function (node) {
                 listArray.push(node.getData());
             });
 
@@ -464,8 +464,8 @@
         /**
          * Interrupts iteration over the list
          */
-        interruptEnumeration: function() {
-          this.iterator.interrupt();
+        interruptEnumeration: function () {
+            this.iterator.interrupt();
         }
     };
 

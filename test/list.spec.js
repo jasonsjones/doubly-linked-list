@@ -26,7 +26,7 @@ describe('Linked List', function () {
     });
 
     it('initially contains zero items', function () {
-        expect(list.isEmpty()).to.be.true
+        expect(list.isEmpty()).to.be.true;
         expect(list.getSize()).to.equal(0);
     });
 
@@ -59,26 +59,26 @@ describe('Linked List', function () {
 
     describe('iterator functionality', function () {
         it('exists when a list is instantiated', function () {
-            expect(list.iterator).to.exist
+            expect(list.iterator).to.exist;
         });
 
         it('iterator currentNode is null when first instantiated',
-          function () {
-              expect(list.iterator.next()).to.not.exist;
-          });
+            function () {
+                expect(list.iterator.next()).to.not.exist;
+            });
 
         it('returns the tail node when iterator.last() is called', function () {
-          populateList(list, 10);
-          var last = list.iterator.last();
-          expect(last).to.equal(list.getTailNode());
-        })
+            populateList(list, 10);
+            var last = list.iterator.last();
+            expect(last).to.equal(list.getTailNode());
+        });
 
         it('returns the head node when iterator.first() is called',
-          function () {
-              populateList(list, 10);
-              var first = list.iterator.first();
-              expect(first).to.equal(list.getHeadNode());
-          });
+            function () {
+                populateList(list, 10);
+                var first = list.iterator.first();
+                expect(first).to.equal(list.getHeadNode());
+            });
 
         it('returns correct boolean value for hasNext()', function () {
             populateList(list, 3);
@@ -123,8 +123,8 @@ describe('Linked List', function () {
             var expectedArray = ['test item 1', 'test item 2', 'test item 3'];
             var dummyCallback = function (node) {
                 array.push(node.getData());
-            }
-            list.iterator.reset()
+            };
+            list.iterator.reset();
             list.iterator.each(dummyCallback);
             expect(array).to.eql(expectedArray);
         });
@@ -253,10 +253,10 @@ describe('Linked List', function () {
 
     describe('remove functionality', function () {
         it('returns null if remove is called on an empty list',
-           function () {
-            var node = list.remove();
-            expect(node).to.not.exist;
-        });
+            function () {
+                var node = list.remove();
+                expect(node).to.not.exist;
+            });
 
         it('removes items from the back of the list', function () {
             populateList(list, 3);
@@ -271,10 +271,10 @@ describe('Linked List', function () {
         });
 
         it('returns null if removeFirst is called on an empty list',
-           function () {
-            var node = list.removeFirst();
-            expect(node).to.not.exist;
-        });
+            function () {
+                var node = list.removeFirst();
+                expect(node).to.not.exist;
+            });
 
         it('removes items from the front of the list', function () {
             populateList(list, 3);
@@ -359,11 +359,11 @@ describe('Linked List', function () {
 
         it('returns -1 for the index of node with the given data if the' +
            'node does not exist',
-                function () {
-                    populateList(list, 3);
-                    var index = list.indexOf('not found');
-                    expect(index).to.equal(-1);
-                });
+        function () {
+            populateList(list, 3);
+            var index = list.indexOf('not found');
+            expect(index).to.equal(-1);
+        });
 
         it('returns node at given index', function () {
             list.insert('test item 1');
