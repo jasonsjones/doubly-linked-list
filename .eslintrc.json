@@ -3,5 +3,18 @@
     "env": {
         "node": true,
         "mocha": true
+    },
+    "rules": {
+        "semi": "warn",
+        "curly": "warn",
+        "eqeqeq": "error",
+        "space-before-function-paren": ["error", {
+            "anonymous": "always",
+            "named": "never"
+        }],
+        "no-multi-spaces": "warn",
+        "indent": "warn",
+        "no-tabs": "error",
+        "wrap-iife": "warn"
     }
 }
