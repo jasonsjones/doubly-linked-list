@@ -8,7 +8,7 @@
   },
   "scripts": {
     "pretest": "npm run lint",
-    "test": "nyc mocha", 
+    "test": "nyc mocha",
     "lint": "eslint index.js lib/*.js test/*.js"
   },
   "repository": {
@@ -24,9 +24,9 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
-    "eslint": "^4.12.0",
-    "mocha": "^4.0.1",
-    "nyc": "^11.3.0"
+    "eslint": "^4.16.0",
+    "mocha": "^5.0.0",
+    "nyc": "^11.4.0"
   },
   "dependencies": {
     "lodash.isequal": "^4.5.0"
