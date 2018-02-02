@@ -12,7 +12,15 @@
             "anonymous": "always",
             "named": "never"
         }],
+        "keyword-spacing": "warn",
+        "max-len": ["warn", {
+            "code": 100,
+            "ignoreTrailingComments": true,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true
+        }],
         "no-multi-spaces": "warn",
+        "no-trailing-spaces": "warn",
         "indent": "warn",
         "no-tabs": "error",
         "wrap-iife": "warn"
