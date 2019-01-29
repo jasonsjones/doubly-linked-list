@@ -172,6 +172,10 @@ list.isEmpty();
 * ### insertAfter(nodeData, dataToInsert)
     Inserts a node (with the `dataToInsert`) _after_ the first node containing
     `nodeData`
+    
+* ### concat (DoublyLinkedList)  
+    Merge this list and `DoublyLinkedList` into a new list. This method does 
+    not change the existing lists, but instead returns a new list.
 
 * ### remove()
     Removes the tail node from the list
