@@ -249,6 +249,24 @@ describe('Linked List', function () {
             node = list.getTailNode();
             expect(node.getData()).to.equal('test item 6');
         });
+
+        it('concats another DoublyLinkedList', function () {
+            populateList(list, 3);
+            var secondList = new LinkedList();
+            populateList(secondList, 5);
+
+            var arrayedLists = list.toArray().concat(secondList.toArray());
+            var newList = list.concat(secondList);
+            //newList and arrayedLists should have the same data in the same order now
+
+            expect(newList.getSize()).to.equal(8);
+            expect(list.getSize()).to.equal(3);
+            expect(secondList.getSize()).to.equal(5); //make sure originals weren't affected
+            arrayedLists.forEach(function (d,i) {
+                expect(d).to.equal(newList.findAt(i).getData());
+            });
+
+        });
     });
 
     describe('remove functionality', function () {

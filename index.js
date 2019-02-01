@@ -228,6 +228,29 @@
             }
         },
 
+        /**
+         * Concatenate another linked list to the end of this linked list. The result is very
+         * similar to array.concat but has a performance improvement since there is no need to
+         * iterate over the lists
+         * @param {DoublyLinkedList} otherLinkedList
+         * @returns {DoublyLinkedList}
+         */
+        concat: function (otherLinkedList) {
+            if (otherLinkedList instanceof DoublyLinkedList) {
+                //create new list so the calling list is immutable (like array.concat)
+                var newList = new DoublyLinkedList();
+                newList.head = this.getHeadNode();
+                newList.tail = this.getTailNode();
+                newList.tail.next = otherLinkedList.getHeadNode();
+                newList.tail = otherLinkedList.getTailNode();
+                newList.size = this.getSize() + otherLinkedList.getSize();
+                return newList;
+            }
+            else {
+                throw new Error("Can only concat another instance of DoublyLinkedList");
+            }
+        },
+
         //################## REMOVE methods ####################
 
         /**
