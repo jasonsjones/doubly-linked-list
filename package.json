@@ -1,34 +1,34 @@
 {
-  "name": "dbly-linked-list",
-  "version": "0.2.0",
-  "description": "Javascript implementation of a doubly linked-list data structure",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "pretest": "npm run lint",
-    "test": "nyc mocha",
-    "lint": "eslint index.js lib/*.js test/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jasonsjones/doubly-linked-list.git"
-  },
-  "keywords": [
-    "doubly linked-list",
-    "linked list",
-    "data structure"
-  ],
-  "author": "Jason Jones",
-  "license": "MIT",
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^4.16.0",
-    "mocha": "^5.0.0",
-    "nyc": "^11.4.0"
-  },
-  "dependencies": {
-    "lodash.isequal": "^4.5.0"
-  }
+    "name": "dbly-linked-list",
+    "version": "0.2.0",
+    "description": "Javascript implementation of a doubly linked-list data structure",
+    "main": "index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "pretest": "npm run lint",
+        "test": "nyc mocha",
+        "lint": "eslint index.js lib/*.js test/*.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jasonsjones/doubly-linked-list.git"
+    },
+    "keywords": [
+        "doubly linked-list",
+        "linked list",
+        "data structure"
+    ],
+    "author": "Jason Jones",
+    "license": "MIT",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^5.14.0",
+        "mocha": "^5.2.0",
+        "nyc": "^13.3.0"
+    },
+    "dependencies": {
+        "lodash.isequal": "^4.5.0"
+    }
 }
