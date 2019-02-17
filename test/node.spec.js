@@ -1,23 +1,23 @@
-/* globals describe it beforeEach before afterEach */
+/* globals describe it before */
 
 var chai = require('chai');
 var LinkedList = require('../');
 
 var expect = chai.expect;
 
-describe('List Node', function () {
+describe('List Node', function() {
     var list = null;
 
-    before(function () {
+    before(function() {
         list = new LinkedList();
     });
 
-    it('exists when instantiated', function () {
+    it('exists when instantiated', function() {
         var node = list.createNewNode('test data');
         expect(node).to.exist;
     });
 
-    it('returns the correct (primitive) data', function () {
+    it('returns the correct (primitive) data', function() {
         var node = list.createNewNode('test data');
         var data = node.getData();
         expect(data).to.be.a('string');
@@ -29,7 +29,7 @@ describe('List Node', function () {
         expect(data).to.equal(42);
     });
 
-    it('returns the correct (object) data', function () {
+    it('returns the correct (object) data', function() {
         var node = list.createNewNode({
             name: 'test item',
             number: 1
@@ -39,22 +39,22 @@ describe('List Node', function () {
         expect(node.toString()).to.eq('{"name":"test item","number":1}');
     });
 
-    it('returns whether or not it has a next node', function () {
+    it('returns whether or not it has a next node', function() {
         var firstNode = list.createNewNode('first node');
         var secondNode = list.createNewNode('second node');
         firstNode.next = secondNode;
         expect(firstNode.hasNext()).to.be.true;
     });
 
-    it('returns whether or not it has a previous node', function () {
+    it('returns whether or not it has a previous node', function() {
         var firstNode = list.createNewNode('first node');
         var secondNode = list.createNewNode('second node');
         secondNode.prev = firstNode;
         expect(secondNode.hasPrev()).to.be.true;
     });
 
-    it('returns a proper string representation of its data', function () {
-        var node = list.createNewNode({name: 'test item', number: 1});
+    it('returns a proper string representation of its data', function() {
+        var node = list.createNewNode({ name: 'test item', number: 1 });
         expect(node.toString()).to.eq('{"name":"test item","number":1}');
 
         node.data = 'string data';
