@@ -7,7 +7,7 @@
         "test": "test"
     },
     "scripts": {
-        "pretest": "npm run lint",
+        "pretest": "yarn run lint",
         "test": "nyc mocha",
         "lint": "eslint index.js lib/*.js test/*.js"
     },
