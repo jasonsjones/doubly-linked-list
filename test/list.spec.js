@@ -265,6 +265,27 @@ describe('Linked List', function() {
             arrayedLists.forEach(function(d, i) {
                 expect(d).to.equal(newList.findAt(i).getData());
             });
+
+            //this list is empty, second is not
+            list.clear();
+            newList = list.concat(secondList);
+            expect(newList.getSize(), 5);
+            expect(newList.getHeadNode()).to.not.equal(null);
+            expect(newList.getTailNode()).to.not.equal(null);
+
+            //both lists are empty
+            secondList.clear();
+            newList = list.concat(secondList);
+            expect(newList.getSize(), 0);
+            expect(newList.getHeadNode()).to.not.exist;
+            expect(newList.getTailNode()).to.not.exist;
+
+            //first list is populated, second is empty
+            populateList(list, 3);
+            newList = list.concat(secondList);
+            expect(newList.getSize(), 3);
+            expect(newList.getHeadNode()).to.not.equal(null);
+            expect(newList.getTailNode()).to.not.equal(null);
         });
     });
 
