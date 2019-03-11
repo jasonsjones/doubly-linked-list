@@ -250,14 +250,14 @@ describe('Linked List', function() {
             expect(node.getData()).to.equal('test item 6');
         });
 
-        it('concats another DoublyLinkedList', function() {
+        it('concats another populated DoublyLinkedList', function() {
             populateList(list, 3);
             var secondList = new LinkedList();
             populateList(secondList, 5);
 
             var arrayedLists = list.toArray().concat(secondList.toArray());
             var newList = list.concat(secondList);
-            //newList and arrayedLists should have the same data in the same order now
+            //newList and arrayedLists should now have the same data in the same order
 
             expect(newList.getSize()).to.equal(8);
             expect(list.getSize()).to.equal(3);
@@ -265,6 +265,33 @@ describe('Linked List', function() {
             arrayedLists.forEach(function(d, i) {
                 expect(d).to.equal(newList.findAt(i).getData());
             });
+        });
+
+        it('when empty lists concats a populated list', function() {
+            var secondList = new LinkedList();
+            populateList(secondList, 5);
+            var newList = list.concat(secondList);
+            expect(newList.getSize(), 5);
+            expect(newList.getHeadNode()).to.not.equal(null);
+            expect(newList.getTailNode()).to.not.equal(null);
+
+        });
+
+        it('concats two empty lists', function() {
+            var secondList = new LinkedList();
+            var newList = list.concat(secondList);
+            expect(newList.getSize(), 0);
+            expect(newList.getHeadNode()).to.not.exist;
+            expect(newList.getTailNode()).to.not.exist;
+        });
+
+        it('populated list concats empty', function() {
+            populateList(list, 3);
+            var secondList = new LinkedList();
+            var newList = list.concat(secondList);
+            expect(newList.getSize(), 3);
+            expect(newList.getHeadNode()).to.not.equal(null);
+            expect(newList.getTailNode()).to.not.equal(null);
         });
     });
 
