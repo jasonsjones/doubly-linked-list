@@ -24,8 +24,8 @@
     "license": "MIT",
     "devDependencies": {
         "chai": "^4.2.0",
-        "eslint": "^5.14.0",
-        "mocha": "^5.2.0",
+        "eslint": "^5.16.0",
+        "mocha": "^6.0.0",
         "nyc": "^13.3.0"
     },
     "dependencies": {
