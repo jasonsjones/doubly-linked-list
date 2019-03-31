@@ -29,6 +29,13 @@ describe('List Node', function() {
         expect(data).to.equal(42);
     });
 
+    [0, '', [], {}].forEach(function(val) {
+        it('returns the correct falsy data for ' + val, function() {
+            var node = list.createNewNode(val);
+            expect(node.getData()).to.equal(val);
+        });
+    });
+
     it('returns the correct (object) data', function() {
         var node = list.createNewNode({
             name: 'test item',
