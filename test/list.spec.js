@@ -1,5 +1,3 @@
-/* globals describe it beforeEach afterEach */
-
 var chai = require('chai');
 var LinkedList = require('../');
 
