@@ -1,6 +1,6 @@
 {
     "name": "dbly-linked-list",
-    "version": "0.3.4",
+    "version": "0.3.5",
     "description": "Javascript implementation of a doubly linked-list data structure",
     "main": "index.js",
     "directories": {
